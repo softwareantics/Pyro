@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pyro.Lexing</name>
+    </assembly>
+    <members>
+        <member name="T:Pyro.Lexing.ITokenizer">
+            <summary>
+              Defines an interface that a lexer or tokenizer.
+            </summary>
+        </member>
+        <member name="M:Pyro.Lexing.ITokenizer.Tokenize(System.String)">
+            <summary>
+              Tokenizes the specified <paramref name="input"/> and returns the tokens.
+            </summary>
+            <param name="input">
+              Specifies the source input to tokenize.
+            </param>
+            <returns>
+              An <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing all tokens matched by the lexers definitions.
+            </returns>
+        </member>
+        <member name="T:Pyro.Lexing.Matching.IPatternMatcher">
+            <summary>
+              Defines an interface that represents a generic pattern matcher.
+            </summary>
+        </member>
+        <member name="M:Pyro.Lexing.Matching.IPatternMatcher.TryMatchInput(System.String,System.String@)">
+            <summary>
+              Tries to match the first occurance of this <see cref="T:Pyro.Lexing.Matching.IPatternMatcher"/> with the specified <paramref name="input"/>.
+            </summary>
+            <param name="input">
+              Specifies the source input to search for a match.
+            </param>
+            <param name="lexeme">
+              Specifies the found sequence of characters that have matched this <see cref="T:Pyro.Lexing.Matching.IPatternMatcher"/>.
+            </param>
+            <returns>
+              <c>true</c> if a match has been made; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Pyro.Lexing.Token">
+            <summary>
+              Represents a lexical token with an assigned name and value.
+            </summary>
+        </member>
+        <member name="P:Pyro.Lexing.Token.Category">
+            <summary>
+              Gets or sets the category of this <see cref="T:Pyro.Lexing.Token"/>.
+            </summary>
+            <value>
+              The category of this <see cref="T:Pyro.Lexing.Token"/>.
+            </value>
+            <remarks>
+              The <see cref="P:Pyro.Lexing.Token.Category"/> property can be useful when defining a token that might need a more detailed description during the parsing stage, for example: If a token represents an integer, it's category might be defined as "Data Type".
+            </remarks>
+        </member>
+        <member name="P:Pyro.Lexing.Token.Length">
+            <summary>
+              Gets the length of this <see cref="T:Pyro.Lexing.Token"/>'s <see cref="P:Pyro.Lexing.Token.Value"/> property.
+            </summary>
+            <value>
+              The length of this <see cref="T:Pyro.Lexing.Token"/>'s value property.
+            </value>
+        </member>
+        <member name="P:Pyro.Lexing.Token.Name">
+            <summary>
+              Gets or sets the name of this <see cref="T:Pyro.Lexing.Token"/>.
+            </summary>
+            <value>
+              The name of this <see cref="T:Pyro.Lexing.Token"/>.
+            </value>
+        </member>
+        <member name="P:Pyro.Lexing.Token.Value">
+            <summary>
+              Gets or sets the value of this <see cref="T:Pyro.Lexing.Token"/>.
+            </summary>
+            <value>
+              The value of this <see cref="T:Pyro.Lexing.Token"/>.
+            </value>
+        </member>
+        <member name="T:Pyro.Lexing.TokenDefinition">
+            <summary>
+              Represents the definition of a lexical token, in other words; a lexer rule.
+            </summary>
+        </member>
+        <member name="M:Pyro.Lexing.TokenDefinition.#ctor(System.String,Pyro.Lexing.Matching.IPatternMatcher,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Pyro.Lexing.TokenDefinition"/> class.
+            </summary>
+            <param name="name">
+              Specifies the name of this <see cref="T:Pyro.Lexing.TokenDefinition"/>.
+            </param>
+            <param name="matcher">
+              Specifies the matcher of this <see cref="T:Pyro.Lexing.TokenDefinition"/>, used to determine if a token should be generated.
+            </param>
+            <param name="category">
+              Specifies the category of this <see cref="T:Pyro.Lexing.TokenDefinition"/>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+              The specified <paramref name="name"/> or <paramref name="matcher"/> parameter is null.
+            </exception>
+        </member>
+        <member name="M:Pyro.Lexing.TokenDefinition.TryGenerateToken(System.String,Pyro.Lexing.Token@)">
+            <summary>
+              Tries to generate a token that matches this <see cref="T:Pyro.Lexing.TokenDefinition"/>.
+            </summary>
+            <param name="input">
+              Specifies the input to search for a match.
+            </param>
+            <param name="token">
+              Specifies the generated token that mas matched this <see cref="T:Pyro.Lexing.TokenDefinition"/>.
+            </param>
+            <returns>
+              <c>true</c> if a token has been generated; otherwise <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+              The specified <paramref name="input"/> parameter is null.
+            </exception>
+        </member>
+    </members>
+</doc>
