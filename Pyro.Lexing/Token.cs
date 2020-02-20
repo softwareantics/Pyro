@@ -2,6 +2,8 @@
 //     Copyright (c) MTO Software. All rights reserved.
 // </copyright>
 
+// A small change.
+
 namespace Pyro.Lexing
 {
     /// <summary>
