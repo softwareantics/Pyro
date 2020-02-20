@@ -1,4 +1,8 @@
-﻿namespace Pyro.Lexing.Tests
+﻿// <copyright file="TokenizerTests.cs" company="MTO Software">
+//     Copyright (c) MTO Software. All rights reserved.
+// </copyright>
+
+namespace Pyro.Lexing.Tests
 {
     using System;
     using System.Collections.Generic;
